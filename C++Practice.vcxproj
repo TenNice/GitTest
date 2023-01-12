@@ -135,6 +135,22 @@
     <ClCompile Include="06.cpp" />
     <ClCompile Include="07.cpp" />
     <ClCompile Include="08.cpp" />
+    <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Grid2D.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Enemy.h" />
+    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Grid2D.h" />
+    <ClInclude Include="L20221230.h" />
+    <ClInclude Include="L20221229.h" />
+    <ClInclude Include="L20230105.h" />
+    <ClInclude Include="L20230106.h" />
+    <ClInclude Include="L20230110.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,3 +1,4 @@
+/*
 #include <iostream>
 
 //랜덤함수를 위한 라이브러리들
@@ -43,6 +44,13 @@ void Swap(int &a, int &b)
 	int temp = a;
 	a = b;
 	b = temp;
+}
+
+void Swap2(int *PtrA, int *PtrB) //int *PtrA = &A;   int *PtrB = &B;   이렇게 생각하자
+{
+	int temp = *PtrA;
+	*PtrA = *PtrB;
+	*PtrB = temp;
 }
 
 //실습3
@@ -210,6 +218,23 @@ int Fibo(int N)
 	return numN;
 }
 
+//실습8
+//배열의 최소값 구하기
+int FindMin(int* NumberArray, int ArraySize) //int* NumberArray은 int NumberArray[]랑 같다.
+{
+	int Result = *NumberArray;
+	for (int i = 0; i < ArraySize; i++)
+	{
+		if (Result > NumberArray[i])
+		{
+			//Result = NumberArray[i];
+			Result = *(NumberArray + i); //오 이렇게도 사용 가능하네. +i번째 주소로 건너뛰어라. 1번 건너뛰는건 해당 자료형의 바이트 수만큼 건너뛴다.
+		}
+	}
+
+	return Result;
+}
+
 
 int main()
 {
@@ -248,30 +273,45 @@ int main()
 	//cout << RFact(n) << endl;
 	//cout << "\n1부터 입력한 정수까지의 합은 : " << OrdinalSequence(n) << endl;
 
-	//---------피보나치 Start---------
-	clock_t start, finish;
-	double duration;
-	start = clock();
+	////---------피보나치 Start---------
+	//clock_t start, finish;
+	//double duration;
+	//start = clock();
 
-	cout << "피보나치수열을 구합니다. 몇 번째 값을 구하고 싶은지 입력해주세요(정수)." << endl;
-	int inputN;
-	cin >> inputN;
-	cout << "\n[재귀함수 Version] 피보나치수열 " << inputN << "번째 값은 " << Fibonacci(inputN) << endl;
+	//cout << "피보나치수열을 구합니다. 몇 번째 값을 구하고 싶은지 입력해주세요(정수)." << endl;
+	//int inputN;
+	//cin >> inputN;
+	//cout << "\n[재귀함수 Version] 피보나치수열 " << inputN << "번째 값은 " << Fibonacci(inputN) << endl;
 
-	finish = clock();
-	duration = (double)(finish - start) / CLOCKS_PER_SEC;
-	cout.precision(33);
-	cout << duration << "초" << endl;
-	//-------피보나치 버전 변경-------
-	start = clock();
+	//finish = clock();
+	//duration = (double)(finish - start) / CLOCKS_PER_SEC;
+	//cout.precision(33);
+	//cout << duration << "초" << endl;
+	////-------피보나치 버전 변경-------
+	//start = clock();
 
-	cout << "\n[재귀함수 아닌 Version] 피보나치수열 " << inputN << "번째 값은 " << Fibo(inputN) << endl;
+	//cout << "\n[재귀함수 아닌 Version] 피보나치수열 " << inputN << "번째 값은 " << Fibo(inputN) << endl;
 
-	finish = clock();
-	duration = (double)(finish - start) / CLOCKS_PER_SEC;
-	cout.precision(33);
-	cout << duration << "초" << endl;
-	//----------피보나치 End----------
+	//finish = clock();
+	//duration = (double)(finish - start) / CLOCKS_PER_SEC;
+	//cout.precision(33);
+	//cout << duration << "초" << endl;
+	////----------피보나치 End----------
+
+	//int A = 1;
+	//int B = 2;
+	//cout << "변경 전 : " << A << ", " << B << endl;
+	//Swap2(&A, &B);
+	//cout << "변경 후 : " << A << ", " << B << endl;
+	//int* PtrA = &A; //PtrA는 포인터 변수야. = &A 이거는 A의 주소값을 넣겠다. PtrA의 값은 &A라는 0F000B1 서울광역시 강남구
+	//int* PtrB = &B;
+	//Swap(A, B);
+	//cout << "변경 후 : " << A << ", " << B << endl;
+
+	int Array[] = { 23,456,2,457,456,345,376,768,3,1 };
+	int ArrayLength = sizeof(Array) / 4; //sizeof함수는 배열이 메모리에서 차지하는 바이트 수를 알려주네
+	cout << "{ 23,456,2,457,456,345,376,768,3,1 }에서 최소값은 " << FindMin(Array, ArrayLength) << endl;
 
 	return 0;
 }
+*/
